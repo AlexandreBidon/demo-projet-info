@@ -16,4 +16,5 @@ headers = {
 
 response = requests.get(url, headers=headers)
 
+print(response.status_code)
 print(response.text)
