@@ -9,7 +9,7 @@ class AbstractWatchableContent(ABC):
         self._description = description
 
     @abstractmethod
-    def get_providers():
+    def get_providers(self) -> list:
         """
         Permet de récupérer la liste des plateformes
         """
