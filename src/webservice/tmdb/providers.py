@@ -8,7 +8,7 @@ load_dotenv()
 cle_api = os.environ.get("API_KEY")
 
 
-def get_providers_for_movie(movie_id: int, ):
+def get_providers_for_movie(movie_id: int):
     headers = {
         "accept": "application/json",
         "Authorization": f"Bearer {cle_api}"
@@ -29,3 +29,7 @@ def get_providers_for_movie(movie_id: int, ):
             liste_providers.append(provider["provider_name"])
 
     return liste_providers
+
+
+def get_providers_for_serie(serie_id: int):
+    pass
