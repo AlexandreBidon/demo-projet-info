@@ -1,0 +1,19 @@
+@startuml test
+actor Utilisateur as user
+boundary Interface    as interface
+entity "Web Service" as API
+entity DAO as dao
+database "Base de données" as db
+
+user -> interface : Création utilisateur
+interface -> API : POST /user
+API -> dao : Appel BDD
+dao -> db : insert
+db -> dao : OK
+dao -> API : OK
+API -> interface : Utilisateur créé
+interface -> user : Confirmation utilisateur
+
+title Diagramme de séquence : Création d'un utilisateur
+
+@enduml

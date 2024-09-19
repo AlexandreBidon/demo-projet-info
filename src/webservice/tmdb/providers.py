@@ -1,22 +1,13 @@
-import os
-from dotenv import load_dotenv
-import requests
 import json
-
-load_dotenv()
-
-cle_api = os.environ.get("API_KEY")
+from tmdb.utils import get_tmdb_session
 
 
 def get_providers_for_movie(movie_id: int):
-    headers = {
-        "accept": "application/json",
-        "Authorization": f"Bearer {cle_api}"
-    }
+    session = get_tmdb_session()
 
     url_movie_providers = f"https://api.themoviedb.org/3/movie/{movie_id}/watch/providers"
 
-    response = requests.get(url_movie_providers, headers=headers)
+    response = session.get(url_movie_providers)
 
     data = json.loads(response.content)
 
