@@ -1,4 +1,5 @@
 @startuml test
+!theme bluegray
 actor Utilisateur as user
 boundary Interface    as interface
 entity "Web Service" as API
