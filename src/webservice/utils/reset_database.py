@@ -13,10 +13,14 @@ class ResetDatabase(metaclass=Singleton):
         init_db = open("data/init_db.sql", encoding="utf-8")
         init_db_as_string = init_db.read()
 
+        fill_db = open("data/fill_db.sql", encoding="utf-8")
+        fill_db_as_string = fill_db.read()
+
         try:
             with DBConnection().connection as connection:
                 with connection.cursor() as cursor:
                     cursor.execute(init_db_as_string)
+                    cursor.execute(fill_db_as_string)
         except Exception as e:
             print(e)
             raise

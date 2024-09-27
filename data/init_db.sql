@@ -19,7 +19,7 @@ CREATE TABLE StreamSmart.user (
 DROP TABLE IF EXISTS StreamSmart.watchlist CASCADE ;
 CREATE TABLE StreamSmart.watchlist (
     id_watchlist serial PRIMARY KEY,
-    id_user FOREIGN KEY REFERENCES StreamSmart.user(id_user),
-    name text,
+    id_user int REFERENCES StreamSmart.user(id_user),
+    name text
 );
 
