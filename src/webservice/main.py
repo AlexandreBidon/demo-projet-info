@@ -1,5 +1,12 @@
-from business_object.watchable_content.movie import Movie
+from fastapi import FastAPI
+import uvicorn
 
-film_interstellar = Movie(157336)
+from api import user, movie, watchlist
 
-print(film_interstellar)
+app = FastAPI()
+
+app.include_router(user.router)
+app.include_router(movie.router)
+app.include_router(watchlist.router)
+
+uvicorn.run(app, host="0.0.0.0", port=8000)
