@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 
-from api import user, movie, watchlist
+from router import user, movie, watchlist
 
 app = FastAPI()
 
